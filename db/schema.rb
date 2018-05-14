@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_05_14_115539) do
   create_table "actors_movies", id: false, force: :cascade do |t|
     t.integer "actor_id", null: false
     t.integer "movie_id", null: false
+    t.index ["actor_id", "movie_id"], name: "index_actors_movies_on_actor_id_and_movie_id"
+    t.index ["movie_id", "actor_id"], name: "index_actors_movies_on_movie_id_and_actor_id"
   end
 
   create_table "movies", force: :cascade do |t|
