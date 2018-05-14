@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_14_115050) do
+ActiveRecord::Schema.define(version: 2018_05_14_115539) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "actors_movies", id: false, force: :cascade do |t|
+    t.integer "actor_id", null: false
+    t.integer "movie_id", null: false
   end
 
   create_table "movies", force: :cascade do |t|
